@@ -65,9 +65,12 @@ wp_reset_postdata();
             <?php 
             $opgave_image_count = 1;
             foreach($GLOBALS['OPGAVE_CARUOSEL'] as $item => $path){
-
-              
               $image_path = $path;
+             
+              if(get_theme_mod('opgave_carousel_image_'.$opgave_image_count)){
+              
+              $image_path = get_theme_mod('opgave_carousel_image_'.$opgave_image_count);
+              }
               echo sprintf('<div id="slider%s" class="slider-item" style="background-image: url(%s)"></div>',$opgave_image_count,$image_path);
               ++$opgave_image_count;
             }?> 
